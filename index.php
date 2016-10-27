@@ -524,7 +524,7 @@ function getVideo(){
         <!-- End Video Section --> 
         
         <!-- Fun Facts -->
-        <section id="fun-facts" data-animate="true">
+        <!--<section id="fun-facts" data-animate="true">
             <div class="container-fluid"> 
                 <div class="row">
 
@@ -547,7 +547,7 @@ function getVideo(){
 
                 </div> 
             </div>
-        </section>
+        </section>-->
         <!-- End Fun Facts -->
 
         <!-- Quotes -->
