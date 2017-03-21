@@ -1,0 +1,16 @@
+.activo {
+text-decoration: underline !important;
+}
+
+.top-subscribe-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #666;
+}
+.top-subscribe-input::-moz-placeholder { /* Firefox 19+ */
+  color: #666;
+}
+.top-subscribe-input:-ms-input-placeholder { /* IE 10+ */
+  color: #666;
+}
+.top-subscribe-input:-moz-placeholder { /* Firefox 18- */
+  color: #666;
+}

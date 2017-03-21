@@ -1,160 +1,10 @@
-<?php
-session_start();
-
-$color = getThemeColor();
-
-$video = getVideo();
-
-function getThemeColor(){
-    $lastColor = (empty($_SESSION["color"]))?"":$_SESSION["color"];
-    $colors = ["blue", "green", "orange", "purple"];
-
-    $colorRand = rand(0,3);
-    while ( $colorRand == $lastColor) {
-        $colorRand = rand(0,3);
-    }
-    $_SESSION["color"] = $colorRand;
-    $color = $colors[$colorRand];
-    return $color;
-}
-
-function getVideo(){
-    $lastVideo = (empty($_SESSION["video"]))?"":$_SESSION["video"];
-    $videos = ["1", "2"];
-
-    $videoRand = rand(0,1);
-    while ( $videoRand == $lastVideo) {
-        $videoRand = rand(0,1);
-    }
-    $_SESSION["video"] = $videoRand;
-    $video = $videos[$videoRand];
-    return $video;
-}
-?>
-<!DOCTYPE html>
-<html lang="es">
-    
-<head>
-        <meta charset="UTF-8">
-        <title>CodeFull Expreciencia Web</title>
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-        <link href="img/assets/favicon.png" rel="icon" type="image/png"> 
-        <link href="css/init.css" rel="stylesheet" type="text/css">
-        <link href="css/ion-icons.min.css" rel="stylesheet" type="text/css">
-        <link href="css/etline-icons.min.css" rel="stylesheet" type="text/css">
-        <link href="css/theme.css" rel="stylesheet" type="text/css">  
-        <link href="css/custom.css" rel="stylesheet" type="text/css">
-        <link href="css/colors/<?=$color?>.css" rel="stylesheet" type="text/css">
-        <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700%7CRaleway:400,100,200,300%7CHind:400,300" rel="stylesheet" type="text/css">
-    </head>
-    <body data-fade-in="true">
-
-        <div class="pre-loader"><div></div></div>
-        
-        <!-- Start Header -->
-        <nav class="navbar nav-down" data-fullwidth="true" data-menu-style="transparent" data-animation="shrink"><!-- Styles: light, dark, transparent | Animation: hiding, shrink -->
-            <div class="container">
-                
-                <div class="navbar-header">
-                    <div class="container">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar top-bar"></span>
-                            <span class="icon-bar middle-bar"></span>
-                            <span class="icon-bar bottom-bar"></span>
-                        </button>
-                        <a class="navbar-brand to-top" href="#"><img src="img/assets/logo-light.png" class="logo-light" alt="#"><img src="img/assets/logo-dark.png" class="logo-dark" alt="#"></a> 
-                    </div>
-                </div>
-
-                <div id="navbar" class="navbar-collapse collapse">
-                    <div class="container">
-                        <ul class="nav navbar-nav menu-right">                            
-                            
-                            <!-- Each section must have corresponding ID ( #hero -> id="hero" ) -->
-                            <li><a href="index.php">Home</a></li>
-                            <li><a href="index.php?#about">About</a></li>
-                            <li><a href="servicios.php">Services</a></li>
-                            <li><a href="#works">Work</a></li>
-                            <li class="dropdown megamenu vos">
-                                <a class="dropdown-toggle">Elements<i class="ion-ios-arrow-down"></i></a> 
-                                <ul class="dropdown-menu fullwidth">
-                                    <li class="megamenu-content withdesc">
-                                        <div class="col-md-3 mg-col">
-                                            <ul>
-                                                <li><a href="elements.html#elements-accordion">Accordion</a></li>
-                                                <li><a href="elements.html#elements-buttons">Buttons</a></li>
-                                                <li><a href="elements.html#elements-features">Icon Features</a></li>
-                                                <li><a href="elements.html#elements-bars">Progress Bars</a></li> 
-                                                <li><a href="elements.html#elements-pricing">Pricing Options</a></li>
-                                                <li><a href="elements.html#elements-lists">Lists</a></li>
-                                                <li><a href="elements.html#elements-typography">Typography</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-3 mg-col">
-                                            <ul>
-                                                <li><a href="elements.html#elements-tabs">Tabs</a></li> 
-                                                <li><a href="elements.html#elements-circles">Progress Circles</a></li>
-                                                <li><a href="elements.html#elements-icons">Icon Fonts</a></li>
-                                                <li><a href="elements.html#elements-maps">Google Maps</a></li>
-                                                <li><a href="elements.html#elements-grid">Grid Columns</a></li>
-                                                <li><a href="elements.html#elements-countdown">Countdowns</a></li>
-                                                <li><a href="elements.html#elements-testimonials">Testimonials</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-3 mg-col">
-                                            <ul>
-                                                <li><a href="elements.html#elements-subscribe">Subscription</a></li>
-                                                <li><a href="elements.html#elements-videos">Video Embeds</a></li>
-                                                <li><a href="elements.html#elements-twitter">Twitter Feed</a></li>
-                                                <li><a href="elements.html#elements-callouts">Callouts</a></li>
-                                                <li><a href="portfolio-contained.html">Portfolio</a></li>
-                                                <li><a href="portfolio-fullwidth.html">Portfolio Fullwidth</a></li>
-                                                <li><a href="project-wide-gallery.html">Project Wide Gallery</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-3 mg-col">
-                                            <ul>
-                                                <li><a href="project-slides.html">Project Slides</a></li>
-                                                <li><a href="project-gallery.html">Projects Gallery</a></li>
-                                                <li><a href="project-video.html">Projects Video</a></li>
-                                                <li><a href="project-wide-slides.html">Project Wide Slides</a></li>
-                                                <li><a href="project-wide-video.html">Project Wide Video</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </ul> 
-                            </li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle">Blog<i class="ion-ios-arrow-down"></i></a> 
-                                <ul class="dropdown-menu">
-                                    <li><a href="blog-standard.html">Standard Layout</a></li>
-                                    <li><a href="blog-list.html">List Layout</a></li>
-                                    <li><a href="blog-grid.html">Grid Layout</a></li>
-                                    <li><a href="blog-post-standard.html">Standard Post</a></li>
-                                    <li><a href="blog-post-gallery.html">Gallery Post</a></li>
-                                    <li><a href="blog-post-video.html">Video Post</a></li>
-                                    <li><a href="blog-post-fullwidth.html">Fullwidth Post</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#contact">Contact</a></li>
-                             
-                            <li class="nav-separator"></li>
-                            <li  class="nav-icon"><a href="http://facebook.com/" target="_blank"><i class="ion-social-facebook"></i></a></li>
-                            <li  class="nav-icon"><a href="http://twitter.com/" target="_blank"><i class="ion-social-twitter"></i></a></li>
-                            <li  class="nav-icon"><a href="#" target="_blank"><i class="ion-help-buoy"></i></a></li>
-                        </ul>
-                        
-                    </div>
-                </div> 
-            </div>
-        </nav>
-        <!-- End Header -->
-        
+        <?php
+        include 'header.php';
+        ?>        
         <!-- Quotes -->
         <section id="quotes" class="parallax pt100 pb120" data-overlay-dark="5">
             <div class="background-image">
-                <img src="img/backgrounds/bg-9.jpg" alt="#">
+                <img src="img/backgrounds/bg-9.jpg" title="CodeFull" alt="CodeFull">
             </div>
             <div class="container">
 
@@ -181,7 +31,7 @@ function getVideo(){
                             <div>
                                 <h3 class="">
                                     <i class="vossen-quote color"></i>
-                                        No vendemos productos, te damos soluciones...
+                                        No vendemos productos, creamos soluciones...
                                     <i class="vossen-quote color"></i>
                                 </h3>
                             </div>
@@ -192,12 +42,37 @@ function getVideo(){
             </div>
         </section>
         <!-- End Quotes -->
+        
+        <!-- Start Typography -->   
+        <section id="elements-typography" class="pt120 pb10">
+            <div class="container"> 
+                <div class="row"> 
+                
+                    <div class="col-md-10 mr-auto mb20">
+                        
+                        <div class="col-md-12 mb40 text-left">
+                            <h2><strong>¿Por qué elegirnos?</strong></h2>
+                            <p>Nuestro compromiso con nuestros clientes va más allá de un contrato entre partes, una orden de compra o un papel firmado, nuestra labor no se da por terminada hasta ver nuestros clientes 100% satisfechos.</p>
+                            <p>Parte de nuestro éxito se basa en la comunicación constante con nuestros clientes, asesorando y orientando hacia el mejor camino a seguir, tus proyectos serán tan tuyos como nuestros. <strong class="color">tu satisfacción es nuestro éxito. ¡No te defraudaremos!</strong>.</p>
+                        </div>
+                        
+                    </div> 
+                    
+                </div>
+            </div>
+        </section>     
+        <!-- End Typography -->
 
         <!-- Features -->
-        <section id="elements-features" class="pt100 pb100">
+        <section id="elements-features" class="pt10 pb20">
             <div class="container">   
                 <div class="row">
-                    
+
+                    <div class="col-md-12 text-center pb20">   
+                        <h2>Lo que hacemos... lo hacemos bien !<br><strong>Vive con nosotros tu propia experiencia</strong></h2>
+                        <!--<p class="lead">Wide range of <span class="color">successful</span> digital and print projects.</p>-->
+                    </div>
+
                     <div class="col-md-12">
                     
                         <div class="col-md-4 col-sm-6 feature-center large">
@@ -209,12 +84,10 @@ function getVideo(){
                                     <div class="col-md-12">
                                         <ul class="list-icons">
                                             <li><i class="ion-android-checkbox-outline"></i>Identidad visual (Diseño de logo)</li>
-                                            <li><i class="ion-android-checkbox-outline"></i>Diseño gráfico (Flyer, poster…)
+                                            <li><i class="ion-android-checkbox-outline"></i>Diseño gráfico
                                                 <ul class="list-icons pl20">
                                                     <li><i class="ion-android-done-all"></i>Volantes</li>
                                                     <li><i class="ion-android-done-all"></i>Posters</li>
-                                                    <li><i class="ion-android-done-all"></i>Vallas</li>
-                                                    <li><i class="ion-android-done-all"></i>Carnets</li>
                                                 </ul>
                                             </li>
                                             <li><i class="ion-android-checkbox-outline"></i>Diseño corporativo
@@ -229,21 +102,44 @@ function getVideo(){
                             </div> 
                         </div>
                         <div class="col-md-4 col-sm-6 feature-center large">
-                            <i class="icon-circle-compass size-4x color"></i>
-                            <i class="icon-circle-compass back-icon"></i> 
+                            <i class="icon-laptop size-4x color"></i>
+                            <i class="icon-laptop back-icon"></i> 
                             <div class="feature-left-content">
-                                <h4><strong>Fast &amp; Smooth</strong><br>Fully Customizable</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</p> 
+                                <h4 class="color"><strong>Desarrollo web</strong><br>Tu futuro en la web</h4>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <ul class="list-icons">
+                                            <li><i class="ion-android-checkbox-outline"></i>Diseño web</li>
+                                            <li><i class="ion-android-checkbox-outline"></i>Aplicaciones web</li>
+                                            <li><i class="ion-android-checkbox-outline"></i>Aplicaciones para Redes Sociales</li>
+                                            <li><i class="ion-android-checkbox-outline"></i>Tiendas online / E-Commerce</li>
+                                            <li><i class="ion-android-checkbox-outline"></i>Páginas de destino / Landing Pages</li>
+                                            <li><i class="ion-android-checkbox-outline"></i>Integración de merchant</li>
+                                            <li><i class="ion-android-checkbox-outline"></i>SEO</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div> 
                         </div>
                         <div class="col-md-4 col-sm-6 feature-center large">
-                            <i class="icon-genius size-4x color"></i>
-                            <i class="icon-genius back-icon"></i> 
+                            <i class="icon-tools size-4x color"></i>
+                            <i class="icon-tools back-icon"></i> 
                             <div class="feature-left-content">
-                                <h4><strong>Free Updates</strong><br>Clean Modern Code</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</p> 
+                                <h4 class="color"><strong>Desarrollo a medida</strong><br>Brindamos soluciones precisas</h4>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <ul class="list-icons">
+                                            <li><i class="ion-android-checkbox-outline"></i>Desarrollo CRM a medida</li>
+                                            <li><i class="ion-android-checkbox-outline"></i>Desarrollo de ERP a medida</li>
+                                            <li><i class="ion-android-checkbox-outline"></i>Integración de plataformas</li>
+                                            <li><i class="ion-android-checkbox-outline"></i>Integración con VO/IP</li>
+                                            <li><i class="ion-android-checkbox-outline"></i>Consultoría</li>
+                                            <li><i class="ion-android-checkbox-outline"></i>Gestión de proyectos</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div> 
-                        </div> 
+                        </div>
                         
                     </div> 
                 
@@ -251,31 +147,48 @@ function getVideo(){
                 </div>
             </div>
         </section>
+        <!-- End Features -->
+
+        <!-- Contact Form -->    
+        <section id="contact" class="pt40 pb100">
+            <div class="container">
+                <div class="row">     
+                    
+                    <div class="col-md-12 text-center pb20">   
+                        <p class="lead">¿Quieres saber más de nuestros servicios?</p>
+                        <h2><strong>Contáctanos</strong></h2>
+                    </div>
+                    
+                    <div class="col-md-8 col-md-offset-2 contact box-style"> 
+                        <div id="message-info"></div>
+
+                        <form name="frmContacto" id="frmContacto" method="post" autocomplete="off"> 
+
+                            <div class="col-sm-12">
+                                <input type="text" required="true" name="txtNombre" id="txtNombre" value="" placeholder="Como te llamas? *"/>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="email" required="true" name="txtEmail" id="txtEmail" value="" placeholder="Necesitamos un email para contactarte *"/>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="tel" name="txtTelefono" id="txtTelefono" placeholder="Si dejas tu número de teléfono y te llamamos?"/>
+                            </div>
+                            <div class="col-sm-12"> 
+                                <textarea name="txtMenjaje" required="true" rows="9" id="txtMensaje" placeholder="Cuentanos brevemente lo que tienes en mente... *"></textarea>
+                            </div>
+                            <div class="col-md-12">
+                                <input type="submit" class="submit btn btn-lg btn-primary" id="btnContacto" value="Listo"/>
+                            </div>
+                            
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- End Contact Form -->
 
         <!-- Start Footer -->
-        <footer id="footer" class="footer style-1 dark">
-
-            <a href="index.html"><img src="img/assets/footer-logo.png" alt="#" class="mr-auto img-responsive"></a>
-            <ul>
-                <li><a href="https://www.twitter.com/" target="_blank" class="color"><i class="ion-social-twitter"></i></a></li>
-                <li><a href="https://www.facebook.com/" target="_blank" class="color"><i class="ion-social-facebook"></i></a></li>
-                <li><a href="https://www.linkedin.com/" target="_blank" class="color"><i class="ion-social-linkedin"></i></a></li>
-                <li><a href="https://www.pinterest.com/" target="_blank" class="color"><i class="ion-social-pinterest"></i></a></li> 
-                <li><a href="https://plus.google.com/" target="_blank" class="color"><i class="ion-social-googleplus"></i></a></li> 
-            </ul>
-            <a href="http://www.codefull.com.ve/"><strong>© CodeFull <?=date("Y")?></strong></a>
-            <p>Hecho por grandes personas.</p>
-            
-            <!-- Back To Top Button -->
-            <span><a class="scroll-top"><i class="ion-chevron-up"></i></a></span>
-            
-        </footer>
-        <!-- End Footer -->
-        
-        <script src="js/jquery.js"></script>
-        <script src="js/init.js"></script>
-        <script src="js/scripts.js"></script>
-       
-    </body>
-
-</html>
+        <?php
+        include 'footer.php';
+        ?>

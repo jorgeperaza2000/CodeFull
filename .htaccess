@@ -1,0 +1,11 @@
+RewriteEngine on
+ErrorDocument 404 http://www.codefull.com.ve/404.html
+
+RewriteRule ^/ index.php
+RewriteRule ^home/?$ index.php
+RewriteRule ^portafolio/?$ portafolio.php
+RewriteRule ^servicios/?$ servicios.php
+RewriteRule ^blog/?$ blog.php
+RewriteRule ^p-(.+)/?$ post.php?id=$1 [QSA]
+RewriteRule ^clientes$ clientes.php
+RewriteRule ^clients/dashboard$ clients/dashboard.php
